@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!--fontawesome-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--bootstrap-->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!--custom css-->
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <title>Weather App</title>
@@ -23,13 +25,14 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <!--able to search for city weather-->
+                <!--search for weather in desired city-->
                 <h4 class="pt-1">Search for a City:</h4>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="city-search" aria-label="City Search"
                         aria-describedby="search-button">
                     <div class="input-group-append">
-                        <button class=" btn btn-primary text-light" id="search-btn"><i class="fa fa-search"></i></button>
+                        <button class=" btn btn-primary text-light" id="search-btn"><i
+                                class="fa fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -38,45 +41,51 @@
                 <div class="row ml-2 border border-dark rounded">
                     <div class="col-sm-12" id="current-weather">
                         <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
-                        <p>Temperature:<span class="current" id="temperature"></span></p>
+                        <p>Temp:<span class="current" id="temperature"></span></p>
+                        <p>Wind:<span class="current" id="wind-speed"></span></p>
                         <p>Humidity:<span class="current" id="humidity"></span></p>
-                        <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
-                        <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p>
+                        <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span>
+                        </p>
                     </div>
                 </div>
-                <!--Row for future data to be dumped here-->
+                <!--weather for the next 5 days-->
                 <div class="col-sm-12" id="future-weather">
                     <h3>5-Day Forecast:</h3>
                     <div class="row text-light">
                         <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                            <p id="future-date0"></p>
+                            <p id="future-img0"></p>
+                            <p>Temp:<span id="future-temp0"></span></p>
+                            <p>Wind:<span id="future-wind0"></span></p>
+                            <p>Humidity:<span id="future-humid0"></span></p>
+                        </div>
+                        <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
                             <p id="future-date1"></p>
                             <p id="future-img1"></p>
                             <p>Temp:<span id="future-temp1"></span></p>
-                            <p>Humidity:<span id="future-humidity1"></span></p>
+                            <p>Wind:<span id="future-wind1"></span></p>
+                            <p>Humidity:<span id="future-humid1"></span></p>
                         </div>
                         <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
                             <p id="future-date2"></p>
                             <p id="future-img2"></p>
                             <p>Temp:<span id="future-temp2"></span></p>
-                            <p>Humidity:<span id="future-humidity2"></span></p>
+                            <p>Wind:<span id="future-wind2"></span></p>
+                            <p>Humidity:<span id="future-humid2"></span></p>
                         </div>
                         <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
                             <p id="future-date3"></p>
                             <p id="future-img3"></p>
                             <p>Temp:<span id="future-temp3"></span></p>
-                            <p>Humidity:<span id="future-humidity3"></span></p>
+                            <p>Wind:<span id="future-wind3"></span></p>
+                            <p>Humidity:<span id="future-humid3"></span></p>
                         </div>
                         <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
                             <p id="future-date4"></p>
                             <p id="future-img4"></p>
                             <p>Temp:<span id="future-temp4"></span></p>
-                            <p>Humidity:<span id="future-humidity4"></span></p>
-                        </div>
-                        <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
-                            <p id="future-date5"></p>
-                            <p id="future-img5"></p>
-                            <p>Temp:<span id="future-temp5"></span></p>
-                            <p>Humidity:<span id="future-humidity5"></span></p>
+                            <p>Wind:<span id="future-wind4"></span></p>
+                            <p>Humidity:<span id="future-humid4"></span></p>
                         </div>
                     </div>
                 </div>
@@ -84,8 +93,8 @@
         </div>
     </div>
 
-
-
+    <!--Luxon-->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.1.1/build/global/luxon.min.js"></script>
     <!--Jquery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--custon js-->
